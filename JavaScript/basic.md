@@ -29,6 +29,22 @@
         && 연산자는 양쪽 변의 값이 모두 true일 때 true 출력 </br>
         || 연산자는 양쪽 변의 값 중 하나만 true여도 true 출력
 
+   1. null 병합 연산자 </br>
+      값이 확정된 변수(null이나 undefined가 아닌 변수)를 찾을 때 사용 </br>
+      물음표를 두번 써서 표시(??)
+
+      ```
+      let varA = 10;
+      let varB = 20;
+      let varC;
+
+      console.log(varA ?? varB);
+      console.log(varC ?? varB);
+
+      > 10  // 둘 다 값이 확정되었기 때문에 왼쪽 값을 반환
+      > 20  // varC는 undefined를 갖기 때문에 확정된 값인 varB를 반환
+      ```
+
 1. 자료형 검사 </br>
    자료형을 확인할 때는 typeof 연산자 사용
    ```
@@ -37,10 +53,28 @@
 1. 템플릿 문자열 </br>
    백틱(\`) 기호로 감싸 만듦 </br>
    문자열 내부에 \`${...}` 기호를 사용하여 표현식을 넣으면 문자열 안에서 계산됨
+
    ```
    console.log(`표현식 273 + 52의 값은 ${273 + 52}입니다`)
    > 표현식 273 + 52의 값은 325입니다
    ```
+
+1. 객체와 참조 </br>
+   원시 자료형은 하나의 값을 저장하지만 함수와 배열 같은 객체 자료형은 여러 개의 값을 저장함 </br>
+   객체 자료형은 값의 크기가 유동적으로 변하기 때문에 값을 저장한 곳으이 주소만 저장하는 참조 방식을 사용
+
+   1. 참조에 의한 비교 </br>
+
+      - 원시 자료형으로 저장한 변수 비교
+
+      ```
+      let numA = 1;
+      let numB = 1;
+
+      console.log(numA == numB);
+
+      > true
+      ```
 
 ## 자료형 변환
 
@@ -193,3 +227,74 @@
    ```
 
    [화살표 함수 메소드 체이닝](./ex1/arrow.html)
+
+# 단락 평가
+
+논리 연산에서 첫번째 피연산자의 값만으로 해당 식의 결과가 확실할 때, 두번째 값은 평가하지 않는 것
+
+1. AND 단락 평가 </br>
+   && 연산자는 피연산자의 값이 하나라도 거짓이면 거짓을 반환하기 때문에 첫번째 피연산자 값이 false면 두번째 피연산자는 계산하지 않음 </br>
+
+   ```
+   function calcA() {
+      console.log('a');
+      return false;
+   }
+
+   function calcB() {
+      console.log('b');
+      return true;
+   }
+
+   console.log(calcA() && calcB());
+
+   > a
+   > false
+   // 첫번째 피연산자 함수의 값이 거짓이므로 calcB()는 호출되지 않음
+   ```
+
+   1. AND 단락 평가를 이용한 오류 방지 </br>
+      단락 평가는 불리언이 아닌 truthy & falsy한 값을 사용할 때도 적용할 수 있음
+
+      ```
+      function getName(person) {
+         return person && person.name;
+         // person의 값이 falsy할 경우 person을 그대로 출력하기 때문에 오류 발생 X
+      }
+
+      let person = {name : "Park JJ"};
+      let name1 = getName(undefined);
+      let name2 = getName(null);
+      let name3 = getName(person);
+
+      console.log(name1);
+      console.log(name2);
+      console.log(name3);
+
+      > undefined
+      > null
+      > Park JJ
+      ```
+
+1. OR 단락 평가 </br>
+   || 연산자는 피연산자의 값이 하나라도 참이면 참을 반환하기 때문에 첫번째 피연산자의 값이 true면 두번째 피연산자 값은 계산하지 않음 </br>
+
+   1. OR 단락 평가와 null 병합 연산자 </br>
+      || 연산자는 truthy와 falsy로 동작 </br>
+      ?? 연산자는 null이나 undefined가 아닌 확정된 피연산자를 찾음
+
+      ```
+      const varA = 0;
+      const varB = "Park JJ" ;
+
+      const resultA = varA || varB;
+      const resultB = varA ?? varB;
+
+      console.log(resultA);
+      console.log(resultB);
+
+      > Park JJ
+      // falsy || truthy 이기 때문에 varB 반환
+      > 0
+      // 첫번째로 확정된 값이 varA이기 때문에 varA 반환
+      ```
