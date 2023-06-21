@@ -67,14 +67,34 @@
 
       - 원시 자료형으로 저장한 변수 비교
 
-      ```
-      let numA = 1;
-      let numB = 1;
+        ```JavaScript
+        let numA = 1;
+        let numB = 1;
 
-      console.log(numA == numB);
+        console.log(numA == numB);
 
-      > true
-      ```
+        >> true
+        ```
+
+        원시 자료형은 값을 변수에 저장할 때 값 그대로 저장
+
+      - 객체 자료형
+
+        ```JavaScript
+        let person = {
+           name: 'jjPark'
+        };
+
+        let man = {
+           name: 'jjPark'
+        };
+
+        console.log(person === man);
+
+        >> false
+        ```
+
+        객체 자료형을 비교할 때는 값이 아닌 참좃값을 비교함 (참조에 의한 비교)
 
 ## 자료형 변환
 
@@ -171,6 +191,74 @@
    ```
    > - 횟수를 기준으로 반복 시 -> for 반복문 사용 </br>
    > - '특정 시간동안 어떤 데이터를 받을 때까지', '배열에서 어떠한 요소가 완전히 제거될 때까지' 등 조건을 기반으로 반복문 사용 시 -> while 반복문 사용
+
+# 구조 분해 할당 Destructuring Assignment
+
+배열이나 객체에서 요소를 해체해 개별 변수에 그 값을 담을 때 사용 <br>
+
+1. 배열의 구조분해 할당
+
+   ```JavaScript
+   let arr = [1, 2, 3]
+
+   let one = arr[0]
+   let two = arr[1]
+   let three = arr[2]
+
+   console.log(one, two, three)
+
+   // 더 간결한 코드
+   let arr = [1, 2, 3]
+   let [one, two, three] = arr
+
+   console.log(one, two, three)
+
+   >> 1 2 3
+   ```
+
+   배열의 길이와 할당할 변수의 개수가 일치하지 않아도 오류가 발생하지 않음 <br>
+
+   - 배열의 길이 > 할당할 변수의 개수<br>
+     변수의 개수만큼만 순서대로 할당 <br>
+
+   - 배열의 길이 < 할당할 변수의 개수 <br>
+     배열의 길이를 넘는 변수에 undefined 할당
+
+1. 객체의 구조 분해 할당
+
+   ```JavaScript
+   let person = {
+      name: 'jjPark',
+      age: 25,
+      location: '제주도'
+   }
+
+   let { name, age, locaton } = person
+
+   console.log(name, age, location)
+   ```
+
+   객체를 구조 분해 할당 시에는 데이터 저장 순서가 아니라 key를 기준으로 value를 할당함
+
+1. 함수의 매개변수가 객체일 때 구조 분해 할당
+
+   ```JavaScript
+   function func({ name: n, age: a, location: l }) {
+      console.log(n, a, l)
+   }
+
+   let person = {
+      name: 'jjPark',
+      age: 25,
+      location: '제주도'
+   }
+
+   func(person)
+
+   >> jjPark 25 제주도
+   ```
+
+   객체의 구조 분해 할당 과정에서 매개변수의 이름을 바꿀 수 있음
 
 # 함수 Function
 
@@ -298,3 +386,63 @@
       > 0
       // 첫번째로 확정된 값이 varA이기 때문에 varA 반환
       ```
+
+# 스프레드 연산자와 rest 매개변수
+
+1. 스프레드 연산자 (전개 연산자)
+   배열, 문자열, 객체 등과 같이 반복 가능한 객체의 값을 개별 요소로 분리할 수 있음
+
+   ```JavaScript
+   let arrA = [1, 2, 3]
+   let arrB = [...arrA, 4, 5, 6]
+
+   console.log(arrB)
+
+   >> [1, 2, 3, 4, 5, 6]
+
+   let objA = {
+      a: 1,
+      b: 2
+   }
+
+   let objB = {
+      ...objA,
+      c: 3,
+      d: 4
+   }
+
+   console.log(objB)
+
+   >> {a: 1, b: 2, c: 3, d: 4}
+   ```
+
+   1. 스프레드 연산자와 함수 <br>
+
+      ```JavaScript
+      function func(a, b, c) {
+         console.log(a, b, c)
+      }
+
+      let arr = [1, 2, 3]
+      func(...arr)
+
+      >> 1, 2, 3
+      ```
+
+1. rest 매개변수 (나머지 매개변수) <br>
+   스프레드 연산자처럼 기호 '...'으로 표기 <br>
+   개별 요소를 배열로 묶음 <br>
+   rest 매개변수와 다른 매개변수를 함께 사용하는 경우, rest 매개변수를 마지막으로 작성해야 함 <br>
+   먼저 선언한 매개변수에 할당된 인수를 제외하고 나머지를 모두 배열에 저장
+
+   ```JavaScript
+   function func(param, ...rest) {
+      console.log(param)
+      console.log(rest)
+   }
+
+   func(1, 2, 3, 4)
+
+   >> 1
+   >> [2, 3, 4]
+   ```
