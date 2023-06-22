@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function getName(person) {
+        return person && person.name;
+      }
+
+      let person = { name: 'Park JJ' };
+      let name1 = getName(undefined);
+      let name2 = getName(null);
+      let name3 = getName(person);
+
+      console.log(name1);
+      console.log(name2);
+      console.log(name3);
+    </script>
+  </body>
+</html>
