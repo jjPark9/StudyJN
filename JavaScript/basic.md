@@ -446,3 +446,39 @@
    >> 1
    >> [2, 3, 4]
    ```
+
+# 비동기 처리
+
+- 동기 Syncronous <br>
+  순차적으로 코드를 실행하는 것
+- 비동기 Asyncronous <br>
+  특정 작업을 다른 작업과 관계 없이 독립적으로 동작하게 만드는 것
+
+  ```JavaScript
+  setTimeout(() => {
+     console.log('1번!')
+  }, 3000)
+
+  console.log('2번!')
+
+  >> 2번!
+  >> 1번!
+  ```
+
+  함수 setTimeout은 두 번째 인수로 전달된 시간(밀리초)만큼 기다린 다음, 첫 번째 인수로 전달된 콜백 함수를 실행
+
+  ```JavaScript
+  function orderCoffee(coffee, time) {
+     setTimeout(() => {
+        console.log(`${coffee} is ready`)
+     }, time)
+  }
+
+  orderCoffee('hot coffee', 4000)
+  orderCoffee('tea', 2000)
+  orderCoffee('ice coffee', 3000)
+
+  >> tea is ready
+  >> ice coffee is ready
+  >> hot coffee is ready
+  ```
