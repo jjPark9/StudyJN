@@ -5,11 +5,18 @@
   </head>
   <body>
     <script>
-      const array = [];
-      for (let i = 0; i < 3; i++) {
-        array.push((i + 1) * 3);
+      function getName(person) {
+        return person && person.name;
       }
-      console.log(array);
+
+      let person = { name: 'Park JJ' };
+      let name1 = getName(undefined);
+      let name2 = getName(null);
+      let name3 = getName(person);
+
+      console.log(name1);
+      console.log(name2);
+      console.log(name3);
     </script>
   </body>
 </html>
