@@ -5,27 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Heropy Coffee" />
-    <meta property="og:title" content="Heropy Coffee Landing" />
-    <meta
-      property="og:description"
-      content="헤로피커피는 세계에서 가장 큰 다국적 커피 전문점으로, 64개국에서 총 23,187개의 매점을 운영하고 있습니다."
-    />
+    <meta property="og:site_name" content="Coffee" />
+    <meta property="og:title" content="Coffee Landing" />
+    <meta property="og:description" content="스타벅스 커피 클론 코딩 페이지 입니다." />
     <meta property="og:image" content="./images/for_seo.jpg" />
     <meta property="og:url" content="https://epic-darwin-271c77.netlify.app" />
 
     <title>Coffee</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <link rel="icon" href="./favicon.png" />
+
     <!-- google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- defer : html 코드가 모두 해석된 이후 동작 -->
+    <script defer src="./js/main.js"></script>
   </head>
   <body>
-    hello world!
-    <span class="material-symbols-outlined"> login </span>
+    <header>
+      <div class="inner">
+        <a href="/" class="logo">
+          <img src="./images/logo.png" alt="Coffee" />
+        </a>
+        <div class="sub-menu">
+          <ul class="menu">
+            <li>
+              <a href="#">Sign In</a>
+            </li>
+            <li>
+              <a href="#">My Coffee</a>
+            </li>
+            <li>
+              <a href="#">Customer Service & Ideas</a>
+            </li>
+            <li>
+              <a href="#">Find a Store</a>
+            </li>
+          </ul>
+          <div class="search">
+            <input type="text" />
+            <span class="material-symbols-outlined"> search </span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- <span class="material-symbols-outlined"> login </span> -->
   </body>
 </html>
