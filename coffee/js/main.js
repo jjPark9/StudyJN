@@ -20,7 +20,7 @@ searchInputEl.addEventListener('blur', () => {
 const badgeEl = document.querySelector('header .badges');
 
 window.addEventListener('scroll', () => {
-  console.log(window.scrollY);
+  // console.log(window.scrollY);
   if (window.scrollY > 500) {
     gsap.to(badgeEl, 0.6, {
       opacity: 0,
@@ -44,4 +44,20 @@ fadeEls.forEach((fadeEl, index) => {
     delay: (index + 1) * 0.7,
     opacity: 1,
   });
+});
+
+// 슬라이드 기능
+new Swiper('.notice .swiper', {
+  direction: 'vertical',
+  autoplay: true,
+  loop: true,
+});
+
+new Swiper('.promotion .swiper', {
+  // direction: 'horizontal'
+  autoplay: true,
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 10,
+  centeredSlides: true,
 });

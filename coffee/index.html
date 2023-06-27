@@ -28,6 +28,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
     <!-- defer : html 코드가 모두 해석된 이후 동작 -->
     <script defer src="./js/main.js"></script>
   </head>
@@ -99,8 +103,25 @@
               <div class="contents__menu">
                 <ul class="inner">
                   <li>
-                    <h4></h4>
-                    <ul></ul>
+                    <h4>음료</h4>
+                    <ul>
+                      <li>콜드 브루</li>
+                      <li>브루드 커피</li>
+                      <li>에스프레소</li>
+                      <li>프라푸치노</li>
+                      <li>블렌디드</li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <h4>푸드</h4>
+                    <ul>
+                      <li>브레드</li>
+                      <li>케이크</li>
+                      <li>샌드위치 & 샐러드</li>
+                      <li>따뜻한 푸드</li>
+                      <li>과일 & 요거트</li>
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -112,8 +133,20 @@
               <div class="contents__menu">
                 <ul class="inner">
                   <li>
-                    <h4></h4>
-                    <ul></ul>
+                    <h4>매장 찾기</h4>
+                    <ul>
+                      <li>퀵 검색</li>
+                      <li>지역 검색</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>드라이브 스루 매장</h4>
+                  </li>
+                  <li>
+                    <h4>리저브 매장</h4>
+                  </li>
+                  <li>
+                    <h4>커뮤니티 스토어 매장</h4>
                   </li>
                 </ul>
               </div>
@@ -191,6 +224,65 @@
         </div>
         <div class="fade-in">
           <img src="./images/visual_spoon.png" alt="Spoon" class="spoon" />
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="bg-left"></div>
+      <div class="bg-right"></div>
+      <div class="inner">
+        <div class="inner__left">
+          <h2>공지사항</h2>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">크리스마스 & 연말연시 매장 영업시간 변경 안내</a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">[당첨자 발표] 커피 영수증 이벤트</a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">애플리케이션 버전 업데이트 안내</a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">[당첨자 발표] 전자영수증 이벤트</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="javascript:void(0)" class="notice-more">
+            <span class="material-symbols-outlined">add_circle</span>
+          </a>
+        </div>
+        <div class="inner__right">
+          <h2>커피 프로모션</h2>
+          <a href="javascript:void(0)">
+            <span class="material-symbols-outlined">upload</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOTION -->
+    <section class="promotion">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide1.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide2.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide3.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide4.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide5.jpg" alt="" />
+          </div>
         </div>
       </div>
     </section>

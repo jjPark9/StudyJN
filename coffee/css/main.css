@@ -4,8 +4,6 @@ body {
   font-weight: 400;
   line-height: 1.4;
   color: #333;
-
-  height: 4400px;
 }
 
 a {
@@ -327,5 +325,106 @@ header .badges .badge {
   bottom: 0;
   left: 275px;
 }
-.visual {
+
+.notice {
+  position: relative;
+}
+
+.notice .bg-left {
+  width: 50%;
+  height: 62px;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.notice .bg-right {
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #f6f5ef;
+  position: absolute;
+}
+
+.notice .inner {
+  height: 62px;
+  display: flex;
+}
+
+.notice .inner__left {
+  width: 70%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.notice .inner__left h2 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.notice .inner__left .swiper {
+  height: 62px;
+  flex-grow: 1;
+}
+
+.notice .inner__left .swiper .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+
+.notice .inner__left .swiper .swiper-slide a {
+  color: #fff;
+}
+
+.notice .inner__left .notice-more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice .inner__left .material-symbols-outlined {
+  color: #fff;
+  font-size: 30px;
+}
+
+.notice .inner__right {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.notice .inner__right h2 {
+  color: #333;
+  font-size: 17px;
+  font-weight: 700;
+  margin-left: 100px;
+  margin-right: 20px;
+}
+
+.notice .inner__right .material-symbols-outlined {
+  color: #333;
+  font-size: 30px;
+}
+
+.promotion {
+  display: flex;
+  justify-content: center;
+  background-color: #f6f5ef;
+  overflow: hidden;
+  position: relative;
+  height: 663px;
+}
+
+.promotion .swiper {
+  width: calc(819px * 3 + 10px * 2);
+  height: 553px;
+  flex-shrink: 0;
 }
