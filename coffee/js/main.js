@@ -33,3 +33,15 @@ window.addEventListener('scroll', () => {
     });
   }
 });
+
+// fade-in 요소
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+
+fadeEls.forEach((fadeEl, index) => {
+  // 1초동안 전환 효과
+  gsap.to(fadeEl, 1, {
+    // index + 1 값만큼 지연 -> 순차적 애니메이션
+    delay: (index + 1) * 0.7,
+    opacity: 1,
+  });
+});
